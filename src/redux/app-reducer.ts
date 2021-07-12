@@ -19,7 +19,6 @@ export const appReducer = (state: InitialStateType = initializeState, action: Ac
         case SET_STATUS:
             return {...state, status: action.status}
         case SET_ERROR:
-            debugger
             return {...state, error: action.error}
         default:
             return state;
