@@ -5,13 +5,13 @@ type ActionsType = ReturnType<typeof setAppStatus>
 export type StatusType = 'idle' | 'loading' | 'success' | 'unsuccessful'
 let initializeState = {
     status: 'idle',
-    error: null,
+    error: '',
 } as InitialStateType
 const SET_STATUS = 'LAO/APP/SET_STATUS';
 const SET_ERROR = 'LAO/APP/SET_ERROR'
 export type InitialStateType = {
     status: StatusType
-    error: string | null
+    error: string
 }
 
 export const appReducer = (state: InitialStateType = initializeState, action: ActionsType): InitialStateType => {
@@ -26,4 +26,4 @@ export const appReducer = (state: InitialStateType = initializeState, action: Ac
 };
 
 export const setAppStatus = (status: StatusType) => ({type: SET_STATUS, status} as const)
-export const setAppError = (error: string | null) => ({type: SET_ERROR, error} as const)
+export const setAppError = (error: string) => ({type: SET_ERROR, error} as const)

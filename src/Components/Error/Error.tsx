@@ -3,12 +3,13 @@ import style from './Error.module.scss'
 
 type ErrorType = {
     error: string
+    condition?: boolean
 }
 
-export const Error: React.FC<ErrorType> = React.memo(({error}) => {
+export const Error: React.FC<ErrorType> = React.memo(({error, condition}) => {
     return (
-        <div className={style.errorWrapper}>
-            <div className={style.error}>{error ? error : ''}</div>
+        <div className={condition ? style.dNone : style.errorWrapper}>
+            <div className={style.error}>{error && error}</div>
         </div>
     )
 });

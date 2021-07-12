@@ -43,8 +43,8 @@ export const getAuthUserData = () => async (dispatch: ThunkDispatch<AppStateType
         dispatch(setUserData(res.data.data));
         dispatch(setIsLoggedIn(true));
         dispatch(setAppStatus('success'));
-    } catch (e) {
-        dispatch(setAppError(e.message))
+    } catch (error) {
+        dispatch(setAppError(error.message))
         dispatch(setAppStatus('unsuccessful'));
     }
 };
